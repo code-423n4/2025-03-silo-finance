@@ -25,10 +25,203 @@ The 4naly3er report can be found [here](https://github.com/code-423n4/2025-01-si
 
 
 _Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
-## 🐺 C4: Begin Gist paste here (and delete this line)
+
+Donation/first deposit attack is possible but unprofitable because of decimal offset.
+
+Certora audit: M-03
+Certora audit: L-07
+Certora audit: I-01
+Certora audit: I-02
+Sigma Prime: SILV-03
+Sigma Prime: SILV-05
+Sigma Prime: SILV-06
+Sigma Prime: SILV-08
+Sigma Prime: SILV-09
+
+✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
+
+# Overview
+
+[ ⭐️ SPONSORS: add info here ]
+
+## Links
+
+- **Previous audits:**  https://drive.google.com/drive/folders/1WjygQr40wT3-0XnOHcT1Fo9ef8acyRCV?usp=sharing
+  - ✅ SCOUTS: If there are multiple report links, please format them in a list.
+- **Documentation:** https://docs.morpho.org/morpho-vaults/overview
+- **Website:** 🐺 CA: add a link to the sponsor's website
+- **X/Twitter:** 🐺 CA: add a link to the sponsor's Twitter
+- **Discord:** 🐺 CA: add a link to the sponsor's Discord
+
+---
+
+# Scope
+
+[ ✅ SCOUTS: add scoping and technical details here ]
+
+### Files in scope
+- ✅ This should be completed using the `metrics.md` file
+- ✅ Last row of the table should be Total: SLOC
+- ✅ SCOUTS: Have the sponsor review and and confirm in text the details in the section titled "Scoping Q amp; A"
+
+*For sponsors that don't use the scoping tool: list all files in scope in the table below (along with hyperlinks) -- and feel free to add notes to emphasize areas of focus.*
+
+| Contract | SLOC | Purpose | Libraries used |  
+| ----------- | ----------- | ----------- | ----------- |
+| [contracts/folder/sample.sol](https://github.com/code-423n4/repo-name/blob/contracts/folder/sample.sol) | 123 | This contract does XYZ | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
+
+### Files out of scope
+✅ SCOUTS: List files/directories out of scope
+
+## Scoping Q &amp; A
+
+### General questions
+### Are there any ERC20's in scope?: Yes
+
+✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
+
+Any (all possible ERC20s)
+
+
+### Are there any ERC777's in scope?: No
+
+✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
 
 
 
+### Are there any ERC721's in scope?: No
+
+✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
+
+
+
+### Are there any ERC1155's in scope?: No
+
+✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
+
+
+
+✅ SCOUTS: Once done populating the table below, please remove all the Q/A data above.
+
+| Question                                | Answer                       |
+| --------------------------------------- | ---------------------------- |
+| ERC20 used by the protocol              |       🖊️             |
+| Test coverage                           | ✅ SCOUTS: Please populate this after running the test coverage command                          |
+| ERC721 used  by the protocol            |            🖊️              |
+| ERC777 used by the protocol             |           🖊️                |
+| ERC1155 used by the protocol            |              🖊️            |
+| Chains the protocol will be deployed on | Ethereum,Arbitrum,Base,Optimism,Polygon,OtherSonic  |
+
+### ERC20 token behaviors in scope
+
+| Question                                                                                                                                                   | Answer |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| [Missing return values](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#missing-return-values)                                                      |   In scope  |
+| [Fee on transfer](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#fee-on-transfer)                                                                  |  Out of scope  |
+| [Balance changes outside of transfers](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#balance-modifications-outside-of-transfers-rebasingairdrops) | Out of scope    |
+| [Upgradeability](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#upgradable-tokens)                                                                 |   Out of scope  |
+| [Flash minting](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#flash-mintable-tokens)                                                              | Out of scope    |
+| [Pausability](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#pausable-tokens)                                                                      | Out of scope    |
+| [Approval race protections](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#approval-race-protections)                                              | Out of scope    |
+| [Revert on approval to zero address](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-approval-to-zero-address)                            | In scope    |
+| [Revert on zero value approvals](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-zero-value-approvals)                                    | In scope    |
+| [Revert on zero value transfers](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-zero-value-transfers)                                    | In scope    |
+| [Revert on transfer to the zero address](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-transfer-to-the-zero-address)                    | In scope    |
+| [Revert on large approvals and/or transfers](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-large-approvals--transfers)                  | In scope    |
+| [Doesn't revert on failure](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#no-revert-on-failure)                                                   |  In scope   |
+| [Multiple token addresses](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-zero-value-transfers)                                          | Out of scope    |
+| [Low decimals ( < 6)](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#low-decimals)                                                                 |   In scope  |
+| [High decimals ( > 18)](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#high-decimals)                                                              | Out of scope    |
+| [Blocklists](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#tokens-with-blocklists)                                                                | Out of scope    |
+
+### External integrations (e.g., Uniswap) behavior in scope:
+
+
+| Question                                                  | Answer |
+| --------------------------------------------------------- | ------ |
+| Enabling/disabling fees (e.g. Blur disables/enables fees) | Yes   |
+| Pausability (e.g. Uniswap pool gets paused)               |  Yes   |
+| Upgradeability (e.g. Uniswap gets upgraded)               |   No  |
+
+
+### EIP compliance checklist
+silo-vaults/contracts/SiloVault.sol implements ERC4626
+silo-vaults/contracts/IdleVault.sol implements ERC4626
+
+✅ SCOUTS: Please format the response above 👆 using the template below👇
+
+| Question                                | Answer                       |
+| --------------------------------------- | ---------------------------- |
+| src/Token.sol                           | ERC20, ERC721                |
+| src/NFT.sol                             | ERC721                       |
+
+
+# Additional context
+
+## Main invariants
+
+https://github.com/silo-finance/silo-contracts-v2/tree/develop/certora/specs/vaults
+
+✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
+
+## Attack ideas (where to focus for bugs)
+Forked code: SiloVault is a fork of MorphoVault. Original code only supported deploying capital to Morpho protocol while SiloVault was changed to support any ERC4626 vault and highly configurable rewards. Admin role stayed unchanged. New admin function were added to manage rewards setup. It is a good start to make sure that code integrity is kept and no bugs were introduced during forking.
+
+Rewards: SiloVault supports custom rewards distribution. It is important that rewards do not compromise the SiloVault logic in any way and are distributed correctly.
+
+
+
+✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
+
+## All trusted roles in the protocol
+
+- Owner
+- Guardian
+- Allocator
+
+Same as MorphoVault with addition to new privileges for owner to manage the rewards. For details, see Morpho docs.
+
+
+
+✅ SCOUTS: Please format the response above 👆 using the template below👇
+
+| Role                                | Description                       |
+| --------------------------------------- | ---------------------------- |
+| Owner                          | Has superpowers                |
+| Administrator                             | Can change fees                       |
+
+## Describe any novel or unique curve logic or mathematical models implemented in the contracts:
+
+N/A
+
+✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
+
+## Running tests
+
+See docs: https://github.com/silo-finance/silo-contracts-v2/blob/develop/MOREDOCS.md 
+
+✅ SCOUTS: Please format the response above 👆 using the template below👇
+
+```bash
+git clone https://github.com/code-423n4/2023-08-arbitrum
+git submodule update --init --recursive
+cd governance
+foundryup
+make install
+make build
+make sc-election-test
+```
+To run code coverage
+```bash
+make coverage
+```
+To run gas benchmarks
+```bash
+make gas
+```
+
+✅ SCOUTS: Add a screenshot of your terminal showing the gas report
+✅ SCOUTS: Add a screenshot of your terminal showing the test coverage
 
 
 # Scope
@@ -1456,3 +1649,8 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 | ./ve-silo/test/voting-escrow/VotingEscrowRemapper.integration.t.sol |
 | Totals: 1375 |
 
+
+## Miscellaneous
+Employees of Silo Finance and employees' family members are ineligible to participate in this audit.
+
+Code4rena's rules cannot be overridden by the contents of this README. In case of doubt, please check with C4 staff.
