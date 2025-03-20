@@ -1,0 +1,137 @@
+[invariant]
+
+[profile.default]
+libs = [
+    'gitmodules',
+    'node_modules',
+    'silo-amm/node_modules'
+]
+out = 'cache/foundry/out'
+evm_version = 'cancun'
+gas_limit = '40000000000'
+
+[profile.core]
+src = 'silo-core/contracts'
+out = 'cache/foundry/out/silo-core'
+broadcast = 'silo-core/broadcast'
+
+fs_permissions = [
+    { access = "read", path = "./cache/foundry/"},
+    { access = "read", path = "./silo-core/test/foundry/data/"},
+    { access = "read", path = "./silo-core/deploy/input/"},
+    { access = "read", path = "./silo-core/deploy/silo/_siloImplementations.json"}
+]
+
+[profile.core-with-test]
+src = 'silo-core/contracts'
+test = 'silo-core/test/foundry'
+out = 'cache/foundry/out/silo-core'
+broadcast = 'silo-core/broadcast'
+
+fs_permissions = [
+    { access = "read", path = "./cache/foundry/"},
+    { access = "read", path = "./silo-core/test/foundry/data/"},
+    { access = "read", path = "./silo-core/deploy/input/"},
+    { access = "read", path = "./silo-core/deploy/silo/_siloImplementations.json"}
+]
+
+[profile.core-with-invariants]
+src = 'silo-core/contracts'
+test = 'silo-core/test/invariants'
+out = 'cache/foundry/out/silo-core'
+broadcast = 'silo-core/broadcast'
+
+fs_permissions = [
+    { access = "read", path = "./cache/foundry/"},
+    { access = "read", path = "./silo-core/test/foundry/data/"},
+    { access = "read", path = "./silo-core/deploy/input/"}
+]
+
+[profile.core-test]
+src = 'silo-core/test'
+out = 'cache/foundry/out/silo-core'
+broadcast = 'silo-core/broadcast'
+
+fs_permissions = [
+    { access = "read", path = "./cache/foundry/"},
+    { access = "read", path = "./silo-core/test/foundry/data/"},
+    { access = "read", path = "./silo-core/deploy/input/"},
+    { access = "read", path = "./silo-core/deploy/silo/_siloImplementations.json"}
+]
+
+[profile.default.fmt]
+line_length=119
+
+[profile.ve-silo]
+src = 've-silo/contracts'
+out = 'cache/foundry/out/ve-silo'
+broadcast = 've-silo/broadcast'
+evm_version = 'paris'
+
+[profile.ve-silo-test]
+src = 've-silo/test'
+out = 'cache/foundry/out/ve-silo'
+broadcast = 've-silo/broadcast'
+evm_version = 'paris'
+
+[profile.vaults]
+src = 'silo-vaults/contracts'
+out = 'cache/foundry/out/silo-vaults'
+broadcast = 'silo-core/broadcast'
+
+fs_permissions = [
+    { access = "read", path = "./cache/foundry/"},
+    { access = "read", path = "./silo-core/test/foundry/data/"},
+    { access = "read", path = "./silo-core/deploy/input/"}
+]
+
+[profile.vaults-tests]
+src = 'silo-vaults/test/foundry'
+out = 'cache/foundry/out/silo-vaults'
+broadcast = 'silo-vaults/broadcast'
+
+fs_permissions = [
+    { access = "read", path = "./cache/foundry/"},
+    { access = "read", path = "./silo-core/test/foundry/data/"},
+    { access = "read", path = "./silo-core/deploy/input/"}
+]
+
+[profile.vaults-with-tests]
+src = 'silo-vaults/contracts'
+test = 'silo-vaults/test/foundry'
+out = 'cache/foundry/out/silo-vaults'
+broadcast = 'silo-core/broadcast'
+
+fs_permissions = [
+    { access = "read", path = "./cache/foundry/"},
+    { access = "read", path = "./silo-core/test/foundry/data/"},
+    { access = "read", path = "./silo-core/deploy/input/"}
+]
+
+[profile.oracles]
+src = 'silo-oracles/contracts'
+out = 'cache/foundry/out/silo-oracles'
+test = 'silo-oracles/test'
+broadcast = 'silo-oracles/broadcast'
+
+[profile.proposals]
+src = 'proposals/contracts'
+out = 'cache/foundry/out/proposals'
+test = 'proposals/test'
+broadcast = 'proposals/broadcast'
+
+[fuzz]
+max_test_rejects = 131072 # 65536 * 2 (doubled a default value)
+
+[rpc_endpoints]
+mainnet = "${RPC_MAINNET}"
+sepolia = "${RPC_SEPOLIA}"
+arbitrum_one = "${RPC_ARBITRUM}"
+optimism = "${RPC_OPTIMISM}"
+anvil = "${RPC_ANVIL}"
+sonic = "${RPC_SONIC}"
+
+[etherscan]
+sonic = { key = "${VERIFIER_API_KEY_SONIC}", chain = 146, url = "${VERIFIER_URL_SONIC}" }
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config

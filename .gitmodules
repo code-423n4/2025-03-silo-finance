@@ -1,0 +1,39 @@
+[submodule "foundry"]
+	path = gitmodules/forge-std
+	url = https://github.com/foundry-rs/forge-std
+	branch = v1.8.1
+[submodule "silo-foundry-utils"]
+	path = gitmodules/silo-foundry-utils
+	url = https://github.com/silo-finance/silo-foundry-utils
+	branch = v0.0.17
+[submodule "gitmodules/uniswap/v3-periphery"]
+	path = gitmodules/uniswap/v3-periphery
+	url = https://github.com/Uniswap/v3-periphery
+	branch = v1.3.0
+[submodule "gitmodules/uniswap/v3-core"]
+	path = gitmodules/uniswap/v3-core
+	url = https://github.com/Uniswap/v3-core
+	branch = v1.0.0
+[submodule "gitmodules/chainlink"]
+	path = gitmodules/chainlink
+	url = https://github.com/smartcontractkit/chainlink
+[submodule "chainlink-ccip"]
+	path = gitmodules/chainlink-ccip
+	url = https://github.com/smartcontractkit/ccip
+[submodule "crytic-properties"]
+	path = gitmodules/crytic/properties
+	url = https://github.com/crytic/properties
+[submodule "openzeppelin5"]
+	path = gitmodules/openzeppelin-contracts-5
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+	branch = v5.0.2
+[submodule "openzeppelin-contracts-upgradeable-5"]
+	path = gitmodules/openzeppelin-contracts-upgradeable-5
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
+[submodule "morpho-blue"]
+	path = gitmodules/morpho-blue
+	url = https://github.com/morpho-org/morpho-blue/
+[submodule "pyth-sdk-solidity"]
+	path = gitmodules/pyth-sdk-solidity
+	url = https://github.com/pyth-network/pyth-crosschain.git
+	branch = xc-admin-v0.6.11
