@@ -156,22 +156,16 @@ Rewards: SiloVault supports custom rewards distribution. It is important that re
 
 ## All trusted roles in the protocol
 
-
-✅ 
-
-| Role                                | Description                       |
-| --------------------------------------- | ---------------------------- |
-| Owner                             |                               |
-| Guardian                          |                               |
-| Allocator                         |                               |
+* Owner
+* Curator
+* Allocator
+* Guardian
 
 Same as MorphoVault with addition to new privileges for owner to manage the rewards. For details, see Morpho docs.
-
+See also more details in [the following doc](https://silo-finance.gitbook.io/private-space/silo-vaults#roles-management)
 
 ## Describe any novel or unique curve logic or mathematical models implemented in the contracts:
-
 N/A
-
 
 
 ## Running tests
