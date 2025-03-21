@@ -31,7 +31,7 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 # Overview
 
-[ ⭐️ SPONSORS: add info here ]
+Silo Finance is a non-custodial money protocol that implements permissionless, isolated lending markets, known as silos. Silo Vault serves as the managed liquidity layer, channeling liquidity into Silo’s lending markets (silos) or any 4626 lending markets.
 
 ## Links
 
