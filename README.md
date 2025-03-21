@@ -36,7 +36,9 @@ Silo Finance is a non-custodial money protocol that implements permissionless, i
 ## Links
 
 - **Previous audits:** See [Drive folder](https://drive.google.com/drive/folders/1WjygQr40wT3-0XnOHcT1Fo9ef8acyRCV?usp=sharing)
-- **Documentation:** https://docs.morpho.org/morpho-vaults/overview
+- **Documentation:**
+  - https://docs.morpho.org/morpho-vaults/overview
+  - https://silo-finance.gitbook.io/private-space/silo-vaults
 - **Website:** https://www.silo.finance/
 - **X/Twitter:** https://x.com/SiloFinance
 - **Discord:** https://discord.gg/silo-finance
