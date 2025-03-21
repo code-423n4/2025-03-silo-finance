@@ -26,19 +26,8 @@ The 4naly3er report can be found [here](https://github.com/code-423n4/2025-01-si
 
 _Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
 
-Donation/first deposit attack is possible but unprofitable because of decimal offset.
-
-Certora audit: M-03
-Certora audit: L-07
-Certora audit: I-01
-Certora audit: I-02
-Sigma Prime: SILV-03
-Sigma Prime: SILV-05
-Sigma Prime: SILV-06
-Sigma Prime: SILV-08
-Sigma Prime: SILV-09
-
-✅ 
+- Donation/first deposit attack is possible but unprofitable because of decimal offset.
+- Any issue reported in previous audits.
 
 # Overview
 
