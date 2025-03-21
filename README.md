@@ -96,7 +96,7 @@ Silo Finance is a non-custodial money protocol that implements permissionless, i
 | Question                                | Answer                       |
 | --------------------------------------- | ---------------------------- |
 | ERC20 used by the protocol              |       Any              |
-| Test coverage                           | ✅ SCOUTS: Please populate this after running the test coverage command                          |
+| Test coverage                           | ~90% on average (see [coverage folder](https://github.com/code-423n4/2025-01-silo-finance/blob/main/coverage) for details)                          |
 | ERC721 used  by the protocol            |            None              |
 | ERC777 used by the protocol             |           None                |
 | ERC1155 used by the protocol            |              None            |
