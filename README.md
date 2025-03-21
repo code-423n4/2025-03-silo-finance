@@ -48,9 +48,9 @@ Sigma Prime: SILV-09
 
 - **Previous audits:** See [Drive folder](https://drive.google.com/drive/folders/1WjygQr40wT3-0XnOHcT1Fo9ef8acyRCV?usp=sharing)
 - **Documentation:** https://docs.morpho.org/morpho-vaults/overview
-- **Website:** 🐺 CA: add a link to the sponsor's website
+- **Website:** https://www.silo.finance/
 - **X/Twitter:** https://x.com/SiloFinance
-- **Discord:** 🐺 CA: add a link to the sponsor's Discord
+- **Discord:** https://discord.gg/silo-finance
 
 ---
 
