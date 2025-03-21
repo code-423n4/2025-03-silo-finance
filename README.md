@@ -178,12 +178,28 @@ N/A
 
 See docs: https://github.com/silo-finance/silo-contracts-v2/blob/develop/MOREDOCS.md 
 
-✅ 
+
 ```bash
 git clone --recurse-submodules https://github.com/code-423n4/2025-03-silo-finance.git
 cd 2025-03-silo-finance
 
+# Create the file ".env" in a root of this folder. ".env.example" is an example.
+# RPC_MAINNET, RPC_ARBITRUM, RPC_ANVIL, PRIVATE_KEY are required to run the tests.
+
+#  Build Silo foundry utils to prepare tools for Silo deployment and testing
+$ cd ./gitmodules/silo-foundry-utils && cargo build --release && cp target/release/silo-foundry-utils ../../silo-foundry-utils && cd -
+
+
+# ensure foundry is set to v0.3.0
+foundryup -i 0.3.0
+forge -V
+# Should output `forge 0.3.0 (5a8bd89 2024-12-19T17:17:08.560665000Z)`
+
+# Core tests:
 FOUNDRY_PROFILE=core-test forge test --no-match-test "_skip_" --nmc "SiloIntegrationTest|MaxBorrow|MaxLiquidationTest|MaxLiquidationBadDebt|PreviewTest|PreviewDepositTest|PreviewMintTest" --ffi -vv
+
+# Vaults tests:
+FOUNDRY_PROFILE=vaults-with-tests forge test  --no-match-test "_skip_" --no-match-contract "SiloIntegrationTest"
 ```
 
 ## Miscellaneous
