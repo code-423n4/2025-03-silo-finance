@@ -27,7 +27,7 @@ The 4naly3er report can be found [here](https://github.com/code-423n4/2025-01-si
 _Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
 
 - Donation/first deposit attack is possible but unprofitable because of decimal offset.
-- Any issue reported in previous audits.
+- Acknowledged issues from previous audits.
 
 # Overview
 
