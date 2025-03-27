@@ -13,7 +13,7 @@ import {IntegrationTest} from "../helpers/IntegrationTest.sol";
 import {CAP} from "../helpers/BaseTest.sol";
 
 /*
- FOUNDRY_PROFILE=vaults-tests forge test --ffi --mc VaultsSiloIncentivesTest -vvv
+ FOUNDRY_PROFILE=vaults_tests forge test --ffi --mc VaultsSiloIncentivesTest -vvv
 */
 contract VaultsSiloIncentivesTest is IntegrationTest {
     MintableToken reward1 = new MintableToken(18);
@@ -37,7 +37,7 @@ contract VaultsSiloIncentivesTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt test_vaults_incentives_deposit_noRewardsSetup -vv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt test_vaults_incentives_deposit_noRewardsSetup -vv
     */
     function test_vaults_incentives_deposit_noRewardsSetup() public {
         assertTrue(address(vault.INCENTIVES_MODULE()) != address(0), "INCENTIVES_MODULE");
@@ -60,7 +60,7 @@ contract VaultsSiloIncentivesTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt test_vaults_incentives_standardRewards -vv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt test_vaults_incentives_standardRewards -vv
     */
     function test_vaults_incentives_standardRewards() public {
         address user = makeAddr("user");

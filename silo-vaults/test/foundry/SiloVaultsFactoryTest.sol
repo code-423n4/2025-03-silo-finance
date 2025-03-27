@@ -13,7 +13,7 @@ import {ConstantsLib} from "../../contracts/libraries/ConstantsLib.sol";
 import {IntegrationTest} from "./helpers/IntegrationTest.sol";
 
 /*
- FOUNDRY_PROFILE=vaults-tests forge test --ffi --mc SiloVaultsFactoryTest -vvv
+ FOUNDRY_PROFILE=vaults_tests forge test --ffi --mc SiloVaultsFactoryTest -vvv
 */
 contract SiloVaultsFactoryTest is IntegrationTest {
     SiloVaultsFactory factory;
@@ -46,7 +46,7 @@ contract SiloVaultsFactoryTest is IntegrationTest {
     }
 
     /*
-    FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testCreateSiloVaultTwice -vvv
+    FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testCreateSiloVaultTwice -vvv
     */
     function testCreateSiloVaultTwice(
         address initialOwner,
@@ -85,7 +85,7 @@ contract SiloVaultsFactoryTest is IntegrationTest {
     }
 
     /*
-    FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testCreateSiloVaultDifferentOwner -vvv
+    FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testCreateSiloVaultDifferentOwner -vvv
     */
     function testCreateSiloVaultDifferentOwner() public {
         address initialOwner = makeAddr("initial owner");

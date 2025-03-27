@@ -16,7 +16,7 @@ import {IntegrationTest} from "./helpers/IntegrationTest.sol";
 import {CAP, MAX_TEST_ASSETS, MIN_TEST_ASSETS, TIMELOCK} from "./helpers/BaseTest.sol";
 
 /*
- FOUNDRY_PROFILE=vaults-tests forge test --ffi --mc MarketTest -vvv
+ FOUNDRY_PROFILE=vaults_tests forge test --ffi --mc MarketTest -vvv
 */
 contract MarketTest is IntegrationTest {
     function setUp() public override {
@@ -28,7 +28,7 @@ contract MarketTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testAllowanceOnSetCap -vvv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testAllowanceOnSetCap -vvv
     */
     function testAllowanceOnSetCap() public {
         IERC4626 market = allMarkets[0];
@@ -75,7 +75,7 @@ contract MarketTest is IntegrationTest {
     }
 
     /*
-    FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testSubmitCapInconsistentAsset -vvv
+    FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testSubmitCapInconsistentAsset -vvv
     */
     function testSubmitCapInconsistentAsset() public {
         IERC4626 market = IERC4626(makeAddr("any market"));
@@ -350,7 +350,7 @@ contract MarketTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testEnableMarketWithLiquidity -vvv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testEnableMarketWithLiquidity -vvv
     */
     function testEnableMarketWithLiquidity(uint256 deposited, uint256 additionalSupply, uint256 blocks) public {
         deposited = bound(deposited, MIN_TEST_ASSETS, MAX_TEST_ASSETS);

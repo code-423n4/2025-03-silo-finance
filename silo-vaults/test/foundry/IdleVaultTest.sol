@@ -8,7 +8,7 @@ import {ErrorsLib} from "../../contracts/libraries/ErrorsLib.sol";
 import {IntegrationTest} from "./helpers/IntegrationTest.sol";
 
 /*
- FOUNDRY_PROFILE=vaults-tests forge test --ffi --mc IdleVaultTest -vvv
+ FOUNDRY_PROFILE=vaults_tests forge test --ffi --mc IdleVaultTest -vvv
 */
 contract IdleVaultTest is IntegrationTest {
     address attacker = makeAddr("attacker");
@@ -31,7 +31,7 @@ contract IdleVaultTest is IntegrationTest {
     }
 
     /*
-        FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt test_idleVault_minDepositWithOffset -vvv
+        FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt test_idleVault_minDepositWithOffset -vvv
     */
     function test_idleVault_minDepositWithOffset() public {
         address v = address(vault);
@@ -46,7 +46,7 @@ contract IdleVaultTest is IntegrationTest {
     }
 
     /*
-    FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt test_idleVault_InflationAttack_permanentLoss -vvv
+    FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt test_idleVault_InflationAttack_permanentLoss -vvv
 
     1. withdraw from idle
     2. inflate price

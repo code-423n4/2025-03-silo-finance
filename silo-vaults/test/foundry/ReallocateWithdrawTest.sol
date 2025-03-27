@@ -18,7 +18,7 @@ uint256 constant CAP2 = 100e18;
 uint256 constant INITIAL_DEPOSIT = 4 * CAP2;
 
 /*
- FOUNDRY_PROFILE=vaults-tests forge test --ffi --mc ReallocateWithdrawTest -vvv
+ FOUNDRY_PROFILE=vaults_tests forge test --ffi --mc ReallocateWithdrawTest -vvv
 */
 contract ReallocateWithdrawTest is IntegrationTest {
     MarketAllocation[] internal allocations;
@@ -37,7 +37,7 @@ contract ReallocateWithdrawTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testReallocateWithdrawMax -vvv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testReallocateWithdrawMax -vvv
     */
     function testReallocateWithdrawMax() public {
         allocations.push(MarketAllocation(allMarkets[0], 0));
@@ -61,7 +61,7 @@ contract ReallocateWithdrawTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testReallocateBalanceTrackerChanges -vvv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testReallocateBalanceTrackerChanges -vvv
     */
     function testReallocateBalanceTrackerChanges() public {
         allocations.push(MarketAllocation(allMarkets[0], 0));
@@ -97,7 +97,7 @@ contract ReallocateWithdrawTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testReallocateInternalSupplyCapExceeded -vvv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testReallocateInternalSupplyCapExceeded -vvv
     */
     function testReallocateInternalSupplyCapExceeded() public {
         allocations.push(MarketAllocation(allMarkets[0], 0));
@@ -119,7 +119,7 @@ contract ReallocateWithdrawTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testReallocateWithdrawMarketNotEnabled -vvv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testReallocateWithdrawMarketNotEnabled -vvv
     */
     function testReallocateWithdrawMarketNotEnabled() public {
         MintableToken loanToken2 = new MintableToken(18);
@@ -139,7 +139,7 @@ contract ReallocateWithdrawTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testReallocateWithdrawSupply -vvv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testReallocateWithdrawSupply -vvv
     */
     function testReallocateWithdrawSupply(uint256[3] memory newAssets) public {
         uint256[3] memory totalSupplyAssets;
@@ -201,7 +201,7 @@ contract ReallocateWithdrawTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testReallocateWithdrawIncreaseSupply -vvv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testReallocateWithdrawIncreaseSupply -vvv
     */
     function testReallocateWithdrawIncreaseSupply() public {
         _setCap(allMarkets[2], 3 * CAP2);
@@ -233,7 +233,7 @@ contract ReallocateWithdrawTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testReallocateUnauthorizedMarket -vvv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testReallocateUnauthorizedMarket -vvv
     */
     function testReallocateUnauthorizedMarket(uint256[3] memory suppliedAssets) public {
         suppliedAssets[0] = bound(suppliedAssets[0], 1, CAP2);
@@ -256,7 +256,7 @@ contract ReallocateWithdrawTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testReallocateSupplyCapExceeded -vvv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testReallocateSupplyCapExceeded -vvv
     */
     function testReallocateSupplyCapExceeded() public {
         allocations.push(MarketAllocation(allMarkets[0], 0));
@@ -271,7 +271,7 @@ contract ReallocateWithdrawTest is IntegrationTest {
     }
 
     /*
-     FOUNDRY_PROFILE=vaults-tests forge test --ffi --mt testReallocateInconsistentReallocation -vvv
+     FOUNDRY_PROFILE=vaults_tests forge test --ffi --mt testReallocateInconsistentReallocation -vvv
     */
     function testReallocateInconsistentReallocation(uint256 rewards) public {
         rewards = bound(rewards, 1, MAX_TEST_ASSETS);
