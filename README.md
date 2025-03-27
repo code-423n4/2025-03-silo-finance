@@ -195,7 +195,7 @@ forge -V
 FOUNDRY_PROFILE=core-test forge test --no-match-test "_skip_" --nmc "SiloIntegrationTest|MaxBorrow|MaxLiquidationTest|MaxLiquidationBadDebt|PreviewTest|PreviewDepositTest|PreviewMintTest" --ffi -vv
 
 # Vaults tests:
-FOUNDRY_PROFILE=vaults-with-tests forge test  --no-match-test "_skip_" --no-match-contract "SiloIntegrationTest"
+FOUNDRY_PROFILE=vaults-with-tests forge test  --no-match-test "_skip_" --no-match-contract "SiloIntegrationTest" --ffi
 ```
 
 ## Miscellaneous
