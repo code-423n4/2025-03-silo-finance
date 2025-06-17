@@ -1,0 +1,1117 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-PUBLIC / silo-mar
+==============================================================
+
+[03/20/2025 18:33] kartoonjoy (pinned)
+👋 Hello and welcome to the **$50,000 in USDC Silo Finance** audit channel!
+
+📆 Audit opens 03/24/2025 20:00 (20:00 UTC) and runs through 03/31/2025 20:00 (20:00 UTC) (7 days).
+
+Please give a warm welcome to the Silo Finance team, particularly @shadowyedd, @IhorSF, @NeoRacer and @Aiham, who will be available for questions either here in the channel or via a PRIVATE thread in the EU timezone(s). 
+
+🤖 **Documentation bot assistance:** For general questions about the codebase, give our documentation bot a try when the audit goes live, by tagging `@Docs Wolf` in any thread (private or public) and asking your question. The bot will make its best attempt to answer based on the codebase and documentation, and link you to relevant resources. *Docs Wolf will be available when the audit is live.*
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: <https://code4rena.com/audits/2025-03-silo-finance>
+
+{Reactions}
+❤️ (3) 🚀 (3) 
+
+[03/20/2025 18:34] kartoonjoy
+Pinned a message.
+
+{Reactions}
+🫡 
+
+[03/20/2025 18:35] kartoonjoy
+ℹ️ Please no questions or comments in this channel for now.
+
+
+[03/20/2025 18:55] 0xrochimaru
+https://tenor.com/view/warming-up-getting-ready-work-winnie-the-pooh-gif-26092808
+
+{Embed}
+https://tenor.com/view/warming-up-getting-ready-work-winnie-the-pooh-gif-26092808
+Code4rena - ARCHIVE-PUBLIC - silo-mar [1352345343299162142].txt_Files/warming-up-getting-ready-4803F.png
+
+{Reactions}
+😜 (12) 🏃‍♂️ (7) koolaid (2) 
+
+[03/24/2025 22:20] benterkiii
+6 days is too short for 1697 lines of code 😮
+
+{Reactions}
+😂 (6) 😫 
+
+[03/24/2025 22:29] importdev0x
+I'm not sure but I think this protocol has been audited so many times . both private and competition. am I right?
+
+
+[03/24/2025 22:38] lordmarvy
+HM
+
+
+[03/24/2025 22:44] nayashi_
+I think so .
+Saw a PDF file of a cantina audit on their site
+
+
+[03/24/2025 23:25] undefined_joe
+like three (3)  audits
+
+{Reactions}
+👍 
+
+[03/24/2025 23:51] nayashi_
+I don't see additional details on silo audits on my page on codearena.. only joined audits how do I submit reports?
+
+
+[03/25/2025 02:57] punisher1303
+You will have this option `SUBMIT FINDING` showing on the very right side of the page,
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - silo-mar [1352345343299162142].txt_Files/image-2B0FE.png
+
+
+[03/25/2025 03:10] derastephh
+Damn another tough one
+
+
+[03/25/2025 03:56] pkabhi
+its forked, so add some hundred lines too
+
+
+[03/25/2025 04:13] owenzo
+we meet again stephen
+
+
+[03/25/2025 05:06] ochuko_wh.
+Please guys I'm getting this error when I run the tests.
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - silo-mar [1352345343299162142].txt_Files/Screenshot_2025-03-25_at_6.03.24_AM-21FAD.png
+
+{Reactions}
+👍 
+
+[03/25/2025 05:56] _givn
+Same here
+
+{Reactions}
+👍 (2) 
+
+[03/25/2025 06:13] 0xdanielc
+I can't see additional details but can submit findings, does that mean I can participate in this contest or not?
+
+
+[03/25/2025 06:21] _givn
+Running the vault tests with a different profile worked for me:
+`FOUNDRY_PROFILE=vaults-tests forge test  --no-match-test "_skip_" --no-match-contract "SiloIntegrationTest" --ffi`
+
+`Ran 37 test suites in 23.20s (100.26s CPU time): 300 tests passed, 0 failed, 0 skipped (300 total tests)`
+
+Not sure if these are all tests, but its a start.
+You also need to configure `.env` with rpc endpoints.
+
+
+[03/25/2025 06:28] tonyxx7
+Also work for me, should add --ffi after the original command.
+
+
+[03/25/2025 07:17] derastephh
+Haha this man😅
+
+
+[03/25/2025 08:24] eddiepumpin
+Does this mean tokens with 6 decimals to 18 decimals are not used?
+
+This is my first time
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - silo-mar [1352345343299162142].txt_Files/20250325_092240-1E214.jpg
+
+
+[03/25/2025 08:48] teoslaf1
+tokens with 1-18 decimals are in scope
+
+{Reactions}
+👍 (2) 
+
+[03/25/2025 08:56] modey__
+same. Thanks
+
+
+[03/25/2025 08:56] eddiepumpin
+Thanks
+
+
+[03/25/2025 09:00] modey__
+`Error: Inline config error at silo-vaults/test/foundry/fromCore/max/maxWithdraw/MaxRedeem.i.sol:0:0:0: invalid profile `vaults-tests.fuzz.runs = 1000`; valid profiles: core, core_test, core_with_invariants, core_with_test, default, oracles, proposals, vaults, vaults_tests, vaults_with_tests, ve_silo, ve_silo_test, vaults-with-tests` I get this error while trying to run Vault tests
+
+
+[03/25/2025 09:01] _givn
+This is a bit weird, since SiloVault has this check in the constructor:
+```js
+uint256 decimals = TokenHelper.assertAndGetDecimals(_asset);
+require(decimals <= 18, ErrorsLib.NotSupportedDecimals());
+```
+Am I missing something here or there's a conflict with the contest readme?
+
+
+[03/25/2025 09:03] heliosophistxiv
+There is no conflict
+
+
+[03/25/2025 09:04] heliosophistxiv
+Tokens with decimals greater than 18 are out of scope and the code actually enforces that (at least in that line where you copied)
+
+{Reactions}
+👍 
+
+[03/25/2025 09:06] _givn
+Oh, looking at it again it makes sense, thanks
+
+{Reactions}
+👍 
+
+[03/25/2025 09:06] modey__
+I think this appears to enforce that decimals should be less than 18
+
+{Reactions}
+👍 
+
+[03/25/2025 09:07] modey__
+@givn please have you been able to run tests for the Vaults ?
+
+{Reactions}
+👍 
+
+[03/25/2025 09:42] dulgiq
+anyone else having a problem with the remappings? Can't find the folders with ctrl+click
+
+
+[03/25/2025 10:37] unpluggedtj
+Same, any idea how to fix it?
+
+
+[03/25/2025 10:49] dulgiq
+nothing I've tried worked
+
+{Reactions}
+👀 
+
+[03/25/2025 11:01] plamkata
+How is interest accumulated over time?
+
+
+[03/25/2025 12:16] kartoonjoy
+Started a thread.
+
+
+[03/25/2025 12:17] kartoonjoy
+Started a thread.
+
+
+[03/25/2025 12:21] mohd.shadab
+Hey, facing the problem. Please, can you guide me out of this??
+
+
+[03/25/2025 12:22] dulgiq
+Still haven't fixed it brother
+
+
+[03/25/2025 12:51] dagamesmith.
+Hi, i am new to foundry, i can't seem to find forge 0.3.0. i ended up just deleting my forge 0.2.0 but can't find the 0.3.0
+
+
+[03/25/2025 12:52] horpheyhemmy18
+run `foundryup  -i 0.3.0`
+
+
+[03/25/2025 12:54] dagamesmith.
+@Horpheyhemmy for some reason i can only install foundry manually, foundryup doesn't work on my linux ubuntu
+
+
+[03/25/2025 12:54] horpheyhemmy18
+Mac or WSL?
+
+
+[03/25/2025 12:56] dagamesmith.
+my machine is a mac converted to a linux ubuntu
+
+
+[03/25/2025 12:57] dagamesmith.
+@Horpheyhemmy my machine is a mac converted to a linux ubuntu
+
+
+[03/25/2025 12:59] horpheyhemmy18
+You built the initial 0.2.0 from source?
+
+
+[03/25/2025 13:00] dagamesmith.
+@Horpheyhemmy yes i did
+
+
+[03/25/2025 13:01] dagamesmith.
+@Horpheyhemmy and everything is working perfectly, except that silo requires 0.3.0
+
+
+[03/25/2025 13:02] horpheyhemmy18
+Dunno, you might have to refer to the FoundryBook Docs
+
+
+[03/25/2025 13:02] dagamesmith.
+@Horpheyhemmy Thanks alot
+
+{Reactions}
+👍 
+
+[03/25/2025 13:06] dagamesmith.
+@Horpheyhemmy just found 0.3.0
+
+
+[03/25/2025 13:09] horpheyhemmy18
+Oh, Okay
+Nice 👍
+
+
+[03/25/2025 13:20] nadir_khan_sec
+Good luck everybody
+
+
+[03/25/2025 14:59] kyosi2963
+Do issues found in Morpho considered known for the Silo contest ?
+
+
+[03/25/2025 16:17] c_moose
+same here, but the code is compiling. I guess we'll just have to live with it given the time we've for the audit
+
+{Reactions}
+✅ 
+
+[03/25/2025 17:22] _arnavjindal
+can someone explain to me how is the documentation set up?? Is Silo a fork from Morpho new here can someone pls clarify??
+
+
+[03/25/2025 18:08] 0xrochimaru
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - silo-mar [1352345343299162142].txt_Files/Screenshot_2025-03-25_at_11.38.43_PM-47F85.png
+
+
+[03/25/2025 18:16] _arnavjindal
+thanks
+
+
+[03/25/2025 18:16] eddiepumpin
+Is Flowcaps the same as Market supply cap?
+
+
+[03/25/2025 19:37] ivanfitro
+for what is the IdleVault?
+
+
+[03/25/2025 21:04] shubu25
+Started a thread.
+
+
+[03/25/2025 22:07] werulez99
+for holding unallocated assets
+
+{Reactions}
+👍 
+
+[03/26/2025 08:30] mosharaf
+Can someone share the link of the repo  please ? 
+I am unable to join the audit for now.
+
+
+[03/26/2025 09:01] audityourcontracts
+https://github.com/code-423n4/2025-03-silo-finance
+
+
+[03/26/2025 09:11] eddiepumpin
+How to create a private thread with the team?
+
+
+[03/26/2025 09:14] dest1992
+y need it too
+
+{Reactions}
+✅ 
+
+[03/26/2025 10:36] kartoonjoy
+Started a thread.
+
+
+[03/26/2025 11:19] plamkata
+Any sponsor activity? I have a few questions but they seem inactive
+
+
+[03/26/2025 11:20] shubu25
+yes same herre
+
+
+[03/26/2025 11:20] dulgiq
+https://tenor.com/view/nothing-not-a-damn-thing-nothing-at-all-mignon-danni-king-gif-16877139
+
+{Embed}
+https://tenor.com/view/nothing-not-a-damn-thing-nothing-at-all-mignon-danni-king-gif-16877139
+Code4rena - ARCHIVE-PUBLIC - silo-mar [1352345343299162142].txt_Files/nothing-not-a-damn-thing-6472E.png
+
+
+[03/26/2025 11:41] mohd.shadab
+Did anyone found anything or am I only one having hard time with it???
+
+{Reactions}
+🇫 (5) 🇷 (5) 
+
+[03/26/2025 11:55] dest1992
+Actually the code is pretty well written, i'm learning so much
+
+
+[03/26/2025 12:34] derastephh
+I haven't even cloned it yet and seeing this😂
+
+{Reactions}
+😂 (3) 
+
+[03/26/2025 13:06] mohd.shadab
+Well, keep doing the hard work.
+
+
+[03/26/2025 13:41] kartoonjoy
+Started a thread.
+
+
+[03/26/2025 14:02] riceee8969
+Hello, anyone faced this issue of red import lines in the IDE even though the code compiles correctly and has a fix? kinda irritating with the red lines or else not a major issue.
+
+
+[03/26/2025 14:10] kartoonjoy
+hi there. if this is not specific to this code base, you'll likely want to ask this question in maybe the #❓・questions channel.
+
+{Reactions}
+👍 
+
+[03/26/2025 14:11] artur9905
+I'd say it is, because a lot of people are having this problem within the codebase of silo. I guess no one has come up with a solution yet
+
+{Reactions}
+👍 (3) 
+
+[03/26/2025 14:16] eddiepumpin
+@kartoonjoy | C4🎇🎇 That is true and the team are not responding
+
+{Reactions}
+👍 
+
+[03/26/2025 14:17] kartoonjoy
+I've asked the team to pop in when they can.
+
+
+[03/26/2025 14:28] eddiepumpin
+So, it is better to gather all questions before they pop in.
+
+
+[03/26/2025 14:28] kartoonjoy
+If you have a thread, you'd need to tag them with your question(s).
+
+
+[03/26/2025 14:29] eddiepumpin
+Okay mate
+
+
+[03/26/2025 14:30] kartoonjoy
+If you have more basic questions, please utilize the @Docs Wolf in a thread.
+
+{Reactions}
+👍 
+
+[03/26/2025 14:36] dest1992
+Can someone explain what is that transient word plz ?
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - silo-mar [1352345343299162142].txt_Files/transient-word-7E71E.png
+
+
+[03/26/2025 14:38] pfapostol
+https://soliditylang.org/blog/2024/01/26/transient-storage/
+
+
+[03/26/2025 14:41] dest1992
+Thank you mate
+
+
+[03/26/2025 14:59] kyosi2963
+? @kartoonjoy | C4🎇🎇
+
+
+[03/26/2025 15:04] mrudenko
+guys, I am facing weird error while running command:
+```d ./gitmodules/silo-foundry-utils && cargo build --release && cp target/release/silo-foundry-utils ../../silo-foundry-utils && cd -
+```
+
+Error:
+```
+error[E0635]: unknown feature `proc_macro_span_shrink`
+  --> /Users/<usernmame>/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.56/src/lib.rs:92:30
+   |
+92 |     feature(proc_macro_span, proc_macro_span_shrink)
+   |                              ^^^^^^^^^^^^^^^^^^^^^^
+```
+
+
+[03/26/2025 15:08] kartoonjoy
+Have you checked the known issues section?
+
+
+[03/26/2025 15:08] pfapostol
+Change rust to stable
+
+
+[03/26/2025 15:09] mauro2857
+Who is the sponsor? Can I ask a question in a private thread?
+
+
+[03/26/2025 15:28] kartoonjoy
+https://discord.com/channels/810916927919620096/1352345343299162142/1352349466765824133
+
+
+[03/26/2025 16:56] owenzo
+@mrudenko when are you restoring your website ser
+
+
+[03/26/2025 16:57] owenzo
+we srsss are suffering without it
+
+
+[03/26/2025 18:08] harry_cryptodev
+how silo makets make the interest?
+any codebase for silo markets?
+
+
+[03/26/2025 21:10] laquica6728
+Hey guys. Is POC mandatory for this competition?
+
+
+[03/26/2025 21:10] laquica6728
+Cause I can’t even compile
+
+
+[03/26/2025 22:28] mauro2857
+Same lol
+
+
+[03/26/2025 22:32] laquica6728
+Yeah it’s crazy, I can’t even run tests , there’s really no time, and the docs didn’t say anything about mandatory POC
+
+
+[03/26/2025 22:54] kartoonjoy
+PoCs are not currently mandatory but as explained in the docs, you do have the burden of proof to support your arguments.
+
+<https://docs.code4rena.com/roles/wardens/submission-guidelines#burden-of-proof>
+
+
+[03/27/2025 02:04] harry_cryptodev
+?
+
+
+[03/27/2025 02:37] v_2110
+Hi guys,
+How to create private thread for this channel?
+
+
+[03/27/2025 03:57] laquica6728
+Thank you
+
+
+[03/27/2025 04:40] 0xa5df
+Replace `vaults-tests` with `vaults_tests` in all test files to fix this, and also add `--ffi` to the test command
+I've pushed those fixes to the repo as well
+
+{Reactions}
+❤️ 
+
+[03/27/2025 04:41] 0xa5df
+Same issue as above or something else?
+
+
+[03/27/2025 05:32] nollinex
+Started a thread.
+
+
+[03/27/2025 10:17] kartoonjoy
+https://discord.com/channels/810916927919620096/1354382207581556848/1354403757391085698
+
+{Reactions}
+✅ 
+
+[03/27/2025 10:39] laquica6728
+Hello all, I just want to be sure, QA(low) findings should all be together in one finding  right ?
+
+{Reactions}
+👋 
+
+[03/27/2025 10:52] kartoonjoy
+correct
+
+
+[03/27/2025 10:53] laquica6728
+Thanks
+
+{Reactions}
+hi5 
+
+[03/27/2025 12:22] mauro2857
+Gas opmizations also?
+
+
+[03/27/2025 12:26] kartoonjoy
+Most audits dont pay out for gas opts now. If an audit isn't paying out, you don't need to focus there.
+
+If an audit did though, then yes, it would be 1 cumulative report for gas too.
+
+
+[03/27/2025 12:27] mauro2857
+So isnt worth even writing the report right
+
+{Reactions}
+💯 
+
+[03/27/2025 17:25] plamkata
+Did anybody find anything about the interest rate or how is interest accrued?
+
+
+[03/27/2025 17:26] plamkata
+Like a calculation in the docs etc, since the code heavily updates the current assets to the new interest-added value
+
+
+[03/27/2025 17:28] dinkras
+Does anyone know the commit hash from the original Silo-Finance repo, that this contest is based on?
+
+
+[03/27/2025 17:59] c_moose
+here: https://docs.morpho.org/overview/concepts/irm/
+
+
+[03/27/2025 18:09] elser17
+Is it in scope the fact that SiloVault can deploy funds to ERC4626 external contracts (not Silo markets)?
+
+
+[03/27/2025 18:29] elser17
+And last ERC4626 markets in supplyQueue are expected to be the first ones in the withdrawalQueue? Or this is not necessarily like this?
+
+
+[03/27/2025 21:36] aiham.eth
+By design, Silo Vaults don't perform any checks whether funds are deployed to Silo markets or not.
+
+
+[03/27/2025 21:37] aiham.eth
+Both queues are independent of each other.
+
+
+[03/28/2025 03:02] mihir1808
+Who is from protocol team here ? Want to tag in private thread
+
+{Reactions}
+👍 
+
+[03/28/2025 03:35] thebrittfactor
+https://discord.com/channels/810916927919620096/1352345343299162142/1352349466765824133
+
+{Reactions}
+👍🏻 (2) 
+
+[03/28/2025 09:23] elser17
+Why there is a VAULT_INCENTIVES_CONTROLLER and a SILO_INCENTIVES_CONTROLLER in SiloIncentivesControllerCL contract? What is the use of each of them?
+
+
+[03/28/2025 09:30] mohd.shadab
+I think it is used for reward distribution to the user who actually stakes in their protocol
+
+
+[03/28/2025 09:36] plamkata
+On earns the Vault's rewards in each separate market and the other distributes those same rewards to Vault depositors
+
+
+[03/28/2025 10:16] aiham.eth
+Here
+
+{Reactions}
+thankyou (3) 
+
+[03/28/2025 11:12] pindarew
+Is anyone getting this when running tests? `[FAIL: vm.ffi: failed to execute command cd ".../code-arena/2025-03-silo-finance" && "./silo-foundry-utils" "key-val-json-read" "--file" "common/addresses/anvil.json" "--key2" "ISiloTimelockController.sol": No such file or directory (os error 2)]`
+
+
+[03/28/2025 11:16] elser17
+But why there is two SiloIncentivesController, one for Vault and another one for Silo? what is the function of each?
+
+
+[03/28/2025 12:10] undefined_joe
+@Aiham quick one.
+The previous audits on Silo, has fixes been done on it in the codebase?
+Cos am always having to go back and forth with the reports, to make sure a finding am tracing isn't already in one of the reports.
+
+
+[03/28/2025 12:10] undefined_joe
+And we have about three reports with many findings
+
+
+[03/28/2025 13:57] eddiepumpin
+Is POC compulsory?
+
+
+[03/28/2025 14:07] kartoonjoy
+https://discord.com/channels/810916927919620096/810916927919620099/1355123358559244348
+
+
+[03/28/2025 14:14] plamkata
+Anyone else getting:
+```
+$ forge test
+No tests found in project! Forge looks for functions that starts with `test`.
+Error: No tests to run
+```
+???
+
+
+[03/28/2025 14:21] no.one7777
+what did you use `forge test` ??
+
+
+[03/28/2025 14:22] plamkata
+Yep
+
+
+[03/28/2025 14:22] no.one7777
+for silo-vaults contract ?
+
+
+[03/28/2025 14:22] plamkata
+Mhm
+
+
+[03/28/2025 14:22] plamkata
+Maybe I need to edit the .toml
+
+
+[03/28/2025 14:22] plamkata
+But still decided to ask first
+
+
+[03/28/2025 14:22] no.one7777
+i use this `FOUNDRY_PROFILE=vaults-tests forge test  --no-match-test "_skip_" --no-match-contract "SiloIntegrationTest" --ffi`
+
+
+[03/28/2025 14:24] plamkata
+This goes where?
+
+
+[03/28/2025 14:25] no.one7777
+in silo-vaults folder
+
+
+[03/28/2025 14:27] plamkata
+I should export the profile to an .env?
+
+
+[03/28/2025 14:27] plamkata
+Or should I enable ffi in the .toml
+
+
+[03/28/2025 14:28] apec
+you can simply run the command
+
+
+[03/28/2025 14:44] plamkata
+Yep 6275 errors I aint dealing with that I am making a new test suite
+
+{Reactions}
+🤣 (2) 
+
+[03/28/2025 14:44] plamkata
+absolute tragedy
+
+
+[03/28/2025 14:53] no.one7777
+no, just make .env file copy everithing of .env_example then go into silo-vaults folder and run the srcipt that i showed you
+
+
+[03/28/2025 17:30] damboy
+please how do you guys run the test?
+
+keep bumping into errors i dont seem to understand
+
+
+[03/28/2025 17:30] damboy
+can anyone please help
+
+
+[03/28/2025 17:33] pindarew
+I had an issue with running the tests also, but this one helped me, check it out. 
+https://github.com/silo-finance/silo-contracts-v2/blob/develop/MOREDOCS.md
+
+{Reactions}
+👍 (3) 
+
+[03/28/2025 22:45] deeney3866
+where you able to make the test suite and run your test.
+
+
+[03/28/2025 22:46] deeney3866
+Have been trying to write my POC but the test folder is not found.
+
+
+[03/28/2025 22:47] deeney3866
+I think this would help. Thanks will try it out tomorrow.
+
+
+[03/29/2025 09:24] chalabiu
+anyone managed to figure out the tests?
+
+
+[03/29/2025 09:30] chalabiu
+yes this helps actually
+
+{Reactions}
+👍 
+
+[03/29/2025 11:48] elser17
+Also, how does SiloIncentivesController contract get the reward tokens that are distributed as rewards? Does anybody fund it?
+
+
+[03/29/2025 13:02] mylifechangefast.eth_70767
+Test unbale to compile -high severity
+
+{Reactions}
+😂 (11) 
+
+[03/29/2025 13:09] foufrix
+Do we know what has been updated since the previous audit ?
+
+
+[03/29/2025 13:45] luc1jan
+Did anyone had issues with Solidity extension in vscode/cursor? Since it's monorepo, I think its a problem. I moved all remappings to settings.json like this, if anyone knows how to solve this, I'd appreciate it.
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - silo-mar [1352345343299162142].txt_Files/Screenshot_2025-03-29_at_14.37.36-AD342.png
+Code4rena - ARCHIVE-PUBLIC - silo-mar [1352345343299162142].txt_Files/Screenshot_2025-03-29_at_14.45.13-5DE3A.png
+
+
+[03/29/2025 14:07] pindarew
+I am facing the same problem, but it is only visual I think
+
+{Reactions}
+👍 
+
+[03/29/2025 14:08] luc1jan
+Yes its extension problem, but i usually fix it with settings.json so i think its just configuration issue.
+
+
+[03/29/2025 14:09] luc1jan
+Not sure how to fix in this case
+
+
+[03/29/2025 21:09] mauro2857
+Cant make my pocs cant even run tests 😭
+
+{Reactions}
+❤️ (3) 
+
+[03/30/2025 05:35] laquica6728
+Dude I gave up on that, it’s not mandatory.
+
+{Reactions}
+😂 (5) 🐐 (3) 
+
+[03/31/2025 07:34] c0pp3rscr3w3r
+Hi, In SiloIncentivesController, the NOTIFIER's decimal is always 18 right? 
+low decimals tokens are not used for this part right ?
+
+{Reactions}
+🔥 
+
+[03/31/2025 14:58] kyosi2963
+@IhorSF @Aiham Would appreciate response in the PT as long as the competition ends soon
+
+
+[03/31/2025 15:58] 0xhung295_61479
+@Luc1jan Hi bro Did u already fix this error?. I'm in the same page
+
+{Reactions}
+❌ 
+
+[03/31/2025 16:12] fondevs
+@Aiham please what chains are the contracts to be deployed
+
+
+[03/31/2025 16:13] aiham.eth
+Sonic, Arbitrum
+
+
+[03/31/2025 16:13] fondevs
+Okay thank you
+
+
+[03/31/2025 17:45] no.one7777
+@Aiham could you please answer in PT
+
+
+[03/31/2025 19:03] eddiepumpin
+As judging started?
+
+
+[03/31/2025 19:26] kartoonjoy
+the audit has not yet ended.
+
+
+[03/31/2025 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺Wardens The **Silo Finance** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks.
+
+{Reactions}
+code4rena 
+
+[03/31/2025 20:45] fils7
+Hey @admin  Is it normal I can't see my submitted PoC's in my Findings?
+
+
+[03/31/2025 20:57] georgefalcon_
+@kartoonjoy | C4🎇🎇 hello please i have a question,
+would all the compliance issue be dupped as 1?
+
+
+[03/31/2025 21:01] itsmetechjay
+It will be up to the judge to determine the final duplicate sets.
+
+
+[03/31/2025 21:02] itsmetechjay
+Submitted POCs should be part of the submission.
+
+{Reactions}
+😲 
+
+[03/31/2025 21:04] fils7
+But when I went to the submitted reports the layout was different so I tranfered my POC to the area where it said ProofOfConcept (Optional)
+Now I cant see submitted POCs
+
+
+[03/31/2025 21:04] fils7
+What if i get invalidated because of this @Jay | C4 ?
+
+
+[03/31/2025 21:22] itsmetechjay
+Will look into this.
+
+{Reactions}
+🙏 
+
+[03/31/2025 21:23] fils7
+Thank you
+
+{Reactions}
+hi5 
+
+[04/01/2025 04:29] samuselderg
+Not to worry! Your PoC will be there, the UI is just awaiting an update to show the PoCs in their new format. Appreciate your patience (will be fixed today) 🙏
+
+{Reactions}
+🫡 thankyou 
+
+[04/01/2025 04:32] fils7
+Thanks for the quick update!
+
+{Reactions}
+hi5 
+
+[04/02/2025 01:49] eddiepumpin
+How will I know my reports have been reviewed?
+
+
+[04/02/2025 08:57] kartoonjoy
+https://discord.com/channels/810916927919620096/810929015509483554/1356263469527339121
+
+
+[04/02/2025 09:07] eddiepumpin
+Thanks
+
+{Reactions}
+hi5 
+
+[04/08/2025 02:21] juggernaut63
+What if I, who do not have an SR role, disagree with the assessment of one of my findings?
+
+
+[04/08/2025 07:10] gr34t.l4k3
+You can’t do anything
+
+{Reactions}
+👍 
+
+[04/08/2025 07:55] jivko.donchev2
+I had submitted a finding from the PublicAllocator.sol contract which is in scope, according to the docs. Why is the finding  marked as out of scope?
+
+
+[04/08/2025 09:56] kartoonjoy
+Hi there. Reminder:
+
+https://discord.com/channels/810916927919620096/810936719003090974/1356599510331293788
+
+{Reactions}
+❤️ (2) 
+
+[04/08/2025 13:52] mauro2857
+How is judging going ?
+
+
+[04/15/2025 10:50] kyosi2963
+What does 'Disputed' status mean ?
+
+
+[04/15/2025 11:16] cloudellie
+It means the sponsor team disagrees with the validity, severity, or both.
+
+{Reactions}
+👍 (2) 
+
+[04/15/2025 11:16] kyosi2963
+So it's basically invalidated, alright
+
+
+[04/15/2025 11:16] kyosi2963
+Is that the final decision for a report?
+
+
+[04/15/2025 11:17] cloudellie
+No - sponsors' input is merely advisory to the judge. The judge's evaluation is final.
+
+{Reactions}
+👍 (4) 
+
+[04/25/2025 02:13] t0x1c.c0de
+Hi @0xnev , saw your [comment](https://code4rena.com/audits/2025-03-silo-finance/submissions/S-566?commentParent=bZsZq6DuqbT); could you elaborate please on what magnitude of numerical impact (or anything specific) you are looking for in the asked PoC for it to be considered a `High`? My submission was [S-78](https://code4rena.com/audits/2025-03-silo-finance/submissions/S-78), a part of that group.
+
+From what I see under [C4 severity classification description](https://docs.code4rena.com/competitions/severity-categorization#estimating-risk):
+```
+3 — High: Assets can be stolen/lost/compromised directly (or indirectly if there is a valid attack path that does not have hand-wavy hypotheticals).
+```
+there is no magnitude of fund loss as a requirement for `High` categorization on C4, so want to be sure of what needs to be shown in the PoC? The [S-78](https://code4rena.com/audits/2025-03-silo-finance/submissions/S-78) already describes how assets are being lost with no hand-wavy hypotheticals, but happy to attempt further analysis if you could clarify the ask please. I am presently not clear which aspects from C4 severity classification criterion render it `Med` currently as per you and what to focus on in any PoC such that it transitions to `High` . Thanks.
+
+
+[04/25/2025 07:01] t0x1c.c0de
+Have added a PoC meanwhile based on my current understanding of expectations, please refer: https://code4rena.com/audits/2025-03-silo-finance/submissions/S-78?commentParent=SMF4fxJU4fF
+
+
+[04/25/2025 08:36] 0xnevi
+Thank you I will take a look soon, I wanted to see
+
+1. For a realistic amount of funds in the SiloVault and its markets, how much fee loss would be accrued
+2. Context of when a transfer would be invoked (standard transfer/reallocation etc..) , given deposits/withdrawals would accrue it appropriately
+
+{Reactions}
+👍🏻 
+
+[04/29/2025 17:53] kartoonjoy
+ℹ️ RSVP for Silo's Mitigation Review: https://discord.com/channels/810916927919620096/958800160870240286/1366834268894007366
+
+
+[04/30/2025 01:31] drynooo
+When did PJQA start and is there no notice now?🥲
+
+
+[04/30/2025 01:45] kartoonjoy
+it was announced for SR wardens
+
+
+[04/30/2025 17:29] kartoonjoy
+🤑 🎉  Awards for **Silo Finance**:
+
+$22,314.92 USDC » @d3e4
+$2,191.38 USDC » @t0x1c
+$2,168.93 USDC » @Drynooo
+$1,109.25 USDC » @oakcobalt
+$853.27 USDC » @seeques
+$853.27 USDC » @aldarion
+$707.15 USDC » @Fitro
+$543.96 USDC » @grearlake
+$543.96 USDC » @SamuelTroyDomi
+$543.96 USDC » @$Coder$
+$442.11 USDC » @c0pp3rscr3w3r
+$340.61 USDC » @SpicyMeatball
+$294.74 USDC » @Sparrow
+$262.01 USDC » @0xfirefist
+$262.01 USDC » 056Security (@0xb0k0, @stanchev)
+$262.01 USDC » @DanielArmstrong
+$262.01 USDC » @Senior
+$179.91 USDC » @0xfalconHoof
+$179.91 USDC » NexusAudits (@cheatc0d3, @zxnnx)
+$179.91 USDC » @Bareli
+$134.93 USDC » @falcurity
+$89.95 USDC » @RaOne
+$89.95 USDC » @anchabadze
+$89.95 USDC » @heeze
+
+🏁 Findings summary
+--------------------------------------—
+1 High risk findings
+5 Med risk findings
+1136 wardens participated
+
+Top Hunter: @d3e4
+Top Gatherer: @d3e4
+Top QA report: @Drynooo
+
+Awards will be distributed on Polygon within the next week. Congratulations all!  💸 💸 💸
+
+⚠️ Awardees, be sure to [complete your tax reporting info](https://docs.code4rena.com/awarding/incentive-model-and-awards/awarding-process#tax-information-for-code4rena-contributors-wardens-judges-etc) if you haven't already. This must be completed within 30 days (i.e. before Friday, 30 May 2025) to receive your award distribution for this audit.
+
+{Reactions}
+🧐 🔥 (2) 
+
+[04/30/2025 17:53] t0x1c.c0de
+That was a cool find @d3e4 ! 👏🏻
+
+{Reactions}
+💯 thankyou 
+
+[05/01/2025 02:11] nitinchaddha_36036
+Hi, was there no appeals period for this audit?
+
+
+[05/01/2025 02:12] nitinchaddha_36036
+@kartoonjoy | C4🎇🎇
+
+
+[05/01/2025 02:36] kartoonjoy
+There was a 48hr PJQA from SR wardens.
+
+https://docs.code4rena.com/competitions/judging-criteria#post-judging-qa-pjqa
+
+
+[05/01/2025 11:06] evokid
+Congrats 🎉👏 @d3e4
+
+{Reactions}
+thankyou 
+
+[05/09/2025 00:00] shealtielanz
+congrats @Drynooo
+
+{Reactions}
+🫡 
+
+[06/02/2025 21:30] C4
+ℹ️ This channel is pending archive.   As a result, any private threads will be permanently deleted 06/11/2025 21:13. Please make sure to grab anything you might need before then.
+
+
+==============================================================
+Exported 214 message(s)
+==============================================================
